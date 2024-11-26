@@ -17,8 +17,9 @@ ENV PENCIL_HOME=/app/pencil-code
 
 RUN git clone https://github.com/pencil-code/pencil-code.git /app/pencil-code
 
-# Run the source script using bash
 RUN bash -c "source /app/pencil-code/sourceme.sh"
 
-# Define the command to start bash after sourcing the script
+RUN mkdir "examples/example-disc"
+RUN cp -rf "samples/2d-tests/globaldisc/* examples/example-disc"
+
 CMD bash
