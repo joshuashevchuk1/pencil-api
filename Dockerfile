@@ -23,4 +23,5 @@ RUN mkdir "./examples"
 RUN mkdir "./examples/example-disc"
 RUN cp -rf ./samples/2d-tests/globaldisc/* ./examples/example-disc
 
+# uncomment for local debugging
 CMD [ "bash", "-c", "source /app/pencil-code/sourceme.sh && bash" ]
