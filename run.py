@@ -1,4 +1,4 @@
-import api.app as common_server
+import app.app as common_server
 
 def run_flask_app():
      server = common_server.CommonApp("9020")
