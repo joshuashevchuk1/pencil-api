@@ -1,7 +1,7 @@
 
 default_config = {
             "init_pars": {
-                "cvsid": "$Id$",
+                "cvsid": "'$Id$'",
                 "ip": 6,
                 "xyz0": [-2.6, -2.6, -0.26],
                 "xyz1": [2.6, 2.6, 0.26],
@@ -23,8 +23,8 @@ default_config = {
             },
             "hydro_init_pars":{},
             "density_init_pars":{
-                "lnrho_const":0,
-                "ldensity_nolong":True,
+                "lnrho_const":0.,
+                "ldensity_nolog":True,
             },
             "grav_init_pars":{
                 "ipotential":"no-smooth",
@@ -37,14 +37,14 @@ default_config = {
                 "eps_dtog":0.01
             },
             "pointmasses_init_pars":{
-                "initxxq":'fixed-cm',
-                "initvvq":'fixed-cm',
+                "initxxq":"'fixed-cm'",
+                "initvvq":"'fixed-cm'",
                 "GNewton":1.0,
                 "pmass":[1e-4,1.],
-                "xq0":-1.0,
+                "xq0":[-1,0],
                 "lcylindrical_gravity_nbody":[True,True],
                 "iprimary":2,
-                "ipotential_pointmass":['boley','newton'],
+                "ipotential_pointmass":["'boley'","'newton'"],
                 "frac_smooth":0.03
             },
         }
