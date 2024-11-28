@@ -19,9 +19,9 @@ RUN git clone https://github.com/pencil-code/pencil-code.git /app/pencil-code
 
 RUN bash -c "source /app/pencil-code/sourceme.sh"
 
-RUN mkdir "./examples"
-RUN mkdir "./examples/example-disc"
-RUN cp -rf ./samples/2d-tests/globaldisc/* ./examples/example-disc
+RUN mkdir ./examples
+RUN mkdir ./examples/example-disc
+RUN cp -rf ./start.in .
 
 # uncomment for local debugging
 CMD [ "bash", "-c", "source /app/pencil-code/sourceme.sh && bash" ]

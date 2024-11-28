@@ -48,5 +48,5 @@ class PencilInitResolver:
 
     def save_file(self):
         configurable_file = self.build_file()
-        with open("start.in", "w") as file:
+        with open("../../../start.in", "w") as file:
             file.write(configurable_file)
