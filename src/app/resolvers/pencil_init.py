@@ -36,7 +36,7 @@ default_config = {
                 "initvvp":"random",
                 "eps_dtog":0.01
             },
-            "pointmasses_init_pars":{},
+            "pointmasses_init_pars":{
                 "initxxq":'fixed-cm',
                 "initvvq":'fixed-cm',
                 "GNewton":1.0,
@@ -46,6 +46,7 @@ default_config = {
                 "iprimary":2,
                 "ipotential_pointmass":['boley','newton'],
                 "frac_smooth":0.03
+            },
         }
 
 class PencilInitResolver:
