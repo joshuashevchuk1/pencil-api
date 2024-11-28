@@ -21,7 +21,9 @@ RUN bash -c "source /app/pencil-code/sourceme.sh"
 
 RUN mkdir ./examples
 RUN mkdir ./examples/example-disc
-RUN cp -rf ./start.in .
+RUN mdkir ./pencil-api
+COPY start.in .
+COPY . ./pencil-api
 
 # uncomment for local debugging
 CMD [ "bash", "-c", "source /app/pencil-code/sourceme.sh && bash" ]
