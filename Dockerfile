@@ -16,12 +16,9 @@ WORKDIR /app/pencil-code
 ENV PENCIL_HOME=/app/pencil-code
 
 RUN git clone https://github.com/pencil-code/pencil-code.git /app/pencil-code
-
-RUN bash -c "source /app/pencil-code/sourceme.sh"
-
 RUN mkdir ./examples
 RUN mkdir ./examples/example-disc
-RUN mdkir ./pencil-api
+RUN mkdir pencil-api
 COPY start.in .
 COPY . ./pencil-api
 
