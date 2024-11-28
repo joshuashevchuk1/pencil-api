@@ -1,7 +1,5 @@
 
-class PencilInitResolver:
-    def __init__(self):
-        self.default_config = {
+default_config = {
             "init_pars": {
                 "cvsid": "7c46bb4e3",
                 "ip": 6,
@@ -25,6 +23,10 @@ class PencilInitResolver:
             }
         }
 
+class PencilInitResolver:
+    def __init__(self):
+        return
+
     def build_section(self,name, params):
         section = f"&{name}\n"
         for key, value in params.items():
@@ -36,13 +38,15 @@ class PencilInitResolver:
         section += "/\n"
         return section
 
-    def build_file(self, config):
+    def build_file(self, config=None):
+        if config is None:
+            config = default_config
         content = "!  -*-f90-*-  (for Emacs)    vim:set filetype=fortran:  (for vim)\n!\n"
         for section, params in config.items():
             content += self.build_section(section, params) + "\n"
         return content
 
     def save_file(self):
-        configurable_file = self.build_file(self.default_config)
+        configurable_file = self.build_file()
         with open("start.in", "w") as file:
             file.write(configurable_file)
