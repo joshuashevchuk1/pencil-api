@@ -29,6 +29,8 @@ RUN mkdir pencil-api
 # Copy configuration files and API code
 COPY start.in .
 COPY . ./pencil-api
-
-# Uncomment for local debugging
+#
+## Uncomment for local debugging
 CMD [ "bash", "-c", "source /app/pencil-code/sourceme.sh && bash" ]
+
+#CMD ["python3","run.py"]
