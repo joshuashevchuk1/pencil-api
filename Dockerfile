@@ -29,6 +29,7 @@ RUN mkdir pencil-api
 # Copy configuration files and API code
 COPY start.in .
 COPY . ./pencil-api
+RUN pip install -r ./pencil-api/requirements.txt
 #
 ## Uncomment for local debugging
 CMD [ "bash", "-c", "source /app/pencil-code/sourceme.sh && bash" ]
