@@ -11,7 +11,11 @@ class PencilInit:
         def post_start_init(self):
 
             self.data = request.get_json()
-            self.write_init("start")
+
+            try:
+                self.write_init("start")
+            except:
+                return jsonify({"message": "could not write init file"}), 500
 
             return jsonify({"message": "successfully constructed init file"}), 201
 
