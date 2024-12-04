@@ -33,4 +33,4 @@ COPY . ./pencil-api
 ## Uncomment for local debugging
 CMD [ "bash", "-c", "source /app/pencil-code/sourceme.sh && bash" ]
 
-#CMD ["python3","run.py"]
+#CMD ["python3","./run.py"]
