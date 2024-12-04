@@ -24,14 +24,15 @@ RUN git clone https://github.com/pencil-code/pencil-code.git /app/pencil-code
 # Create directories for examples and API
 RUN mkdir ./examples
 RUN mkdir ./examples/example-disc
-RUN mkdir pencil-api
+RUN mkdir ./python/pencil-api
 
 # Copy configuration files and API code
 COPY start.in .
-COPY . ./pencil-api
-RUN pip install -r ./pencil-api/requirements.txt
-#
-## Uncomment for local debugging
-CMD [ "bash", "-c", "source /app/pencil-code/sourceme.sh && bash" ]
+COPY . ./python/pencil-api
+RUN chmod +x ./python/pencil-api/run.sh
+RUN pip3 install -r ./python/pencil-api/requirements.txt
 
-#CMD ["python3","./run.py"]
+## Uncomment for local debugging
+#CMD [ "bash", "-c", "source /app/pencil-code/sourceme.sh && bash"]
+
+CMD ["./python/pencil-api/run.sh"]
