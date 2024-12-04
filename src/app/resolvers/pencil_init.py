@@ -1,5 +1,5 @@
 
-default_config = {
+default_json = {
             "init_pars": {
                 "cvsid": "'$Id$'",
                 "ip": 6,
@@ -51,7 +51,11 @@ default_config = {
 
 class PencilInitResolver:
     def __init__(self):
+        self.init_json = None
         return
+
+    def set_init_json(self, init_json):
+        self.init_json = init_json
 
     def build_section(self,name, params):
         section = f"&{name}\n"
@@ -64,11 +68,11 @@ class PencilInitResolver:
         section += "/\n"
         return section
 
-    def build_file(self, config=None):
-        if config is None:
-            config = default_config
+    def build_file(self):
+        if self.init_json is None:
+            self.init_json = default_json
         content = "!  -*-f90-*-  (for Emacs)    vim:set filetype=fortran:  (for vim)\n!\n"
-        for section, params in config.items():
+        for section, params in self.init_json.items():
             content += self.build_section(section, params) + "\n"
         return content
 
