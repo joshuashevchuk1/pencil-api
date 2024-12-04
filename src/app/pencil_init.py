@@ -8,20 +8,28 @@ class PencilInit:
             self.data = None
             return
 
-        def post_start_init(self):
+
+        def post_init(self, file_name):
+            """
+            posts a new .in file for tests
+            at least a start.in run.in and print.in are required for testing
+            :param file_name:
+            :return:
+            """
 
             self.data = request.get_json()
 
             try:
-                self.write_init("start")
+                pinit = rpi.PencilInitResolver()
+                pinit.set_init_json(self.data)
+                pinit.set_file_name(file_name)
+                pinit.write_file()
             except:
-                return jsonify({"message": "could not write init file"}), 500
+                return jsonify({"message": "could not write start init file"}), 500
 
-            return jsonify({"message": "successfully constructed init file"}), 201
+            return jsonify({"message": "successfully constructed start init file"}), 201
 
-        def write_init(self,file_name):
-            pinit = rpi.PencilInitResolver()
-            pinit.set_init_json(self.data)
-            configurable_file = pinit.build_file()
-            with open("../../../"+str(file_name), "w") as file:
-                file.write(configurable_file)
+
+
+        def add_routes(self):
+            self.app.add_url_rule('/init/:file_name', 'post_init', self.post_init, methods=["POST"])

@@ -52,12 +52,17 @@ default_json = {
 class PencilInitResolver:
     def __init__(self):
         self.init_json = None
+        self.file_name = None
         return
 
     def set_init_json(self, init_json):
         self.init_json = init_json
 
-    def build_section(self,name, params):
+    def set_file_name(self,file_name):
+        self.file_name = file_name
+
+    @staticmethod
+    def __build_section__(name, params):
         section = f"&{name}\n"
         for key, value in params.items():
             if isinstance(value, list):
@@ -68,15 +73,15 @@ class PencilInitResolver:
         section += "/\n"
         return section
 
-    def build_file(self):
+    def __build_file__(self):
         if self.init_json is None:
             self.init_json = default_json
         content = "!  -*-f90-*-  (for Emacs)    vim:set filetype=fortran:  (for vim)\n!\n"
         for section, params in self.init_json.items():
-            content += self.build_section(section, params) + "\n"
+            content += self.__build_section__(section, params) + "\n"
         return content
 
-    def save_file(self):
-        configurable_file = self.build_file()
-        with open("../../../start.in", "w") as file:
+    def write_file(self):
+        configurable_file = self.__build_file__()
+        with open("../../../" + str(self.file_name), "w") as file:
             file.write(configurable_file)
