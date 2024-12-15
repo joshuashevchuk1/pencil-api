@@ -4,7 +4,7 @@ import yaml
 class Config:
     _instance = None
 
-    def __new__(cls, env=None, path="./src/config"):
+    def __new__(cls, env=None, path="../config"):
         if cls._instance is None:
             cls._instance = super(Config, cls).__new__(cls)
             # Ensure instance gets initialized with env and path on first instantiation
