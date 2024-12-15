@@ -1,8 +1,6 @@
 
 import os
 
-from numpy.distutils.command.config import config
-
 import config.config as cfg
 
 
@@ -11,22 +9,26 @@ class SimulationResolver:
     resolves specific pencil commands for the pencil simulation
     """
     def __init__(self):
-        self.file_name = None
+        self.sim = None
         self.config = cfg.Config()
-        self.simulation_dir = self.config.get("simulation_dir")
+        self.simulations = self.config.get("simulations")
+        self.api_path = self.config.get("api_path")
         return
 
-    def set_file_name(self,file_name):
-        self.file_name = file_name
+    def set_sim(self, sim):
+        self.sim = sim
 
     def build(self):
-        os.system("pc_build " + "./" + str(self.simulation_dir))
+        os.chdir(str(self.api_path) + str(self.simulations) + "/" + str(self.sim))
+        os.system("pc_build " + "/app/pencil-code/python/pencil-api" + str(self.simulations))
         return
 
     def start(self):
-        os.system("pc_start " + "./" + str(self.simulation_dir))
+        os.chdir(str(self.api_path) + str(self.simulations) + "/" + str(self.sim))
+        os.system("pc_start " + "/app/pencil-code/python/pencil-api" + str(self.simulations))
         return
 
     def run(self):
-        os.system("pc_run " + "./" + str(self.simulation_dir))
+        os.chdir(str(self.api_path) + str(self.simulations) + "/" + str(self.sim))
+        os.system("pc_run " + "/app/pencil-code/python/pencil-api" + str(self.simulations))
         return

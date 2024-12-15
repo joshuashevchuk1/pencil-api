@@ -14,7 +14,7 @@ The pencil-api runs a flask server via docker
 To build the flask server run the following command
 
 ```commandline
-docker build -t pencil-api .
+sudo docker build -t pencil-api .
 ```
 
 ```commandline

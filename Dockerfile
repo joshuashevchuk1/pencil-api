@@ -31,6 +31,6 @@ RUN chmod +x ./python/pencil-api/run.sh
 RUN pip3 install -r ./python/pencil-api/requirements.txt
 
 ## Uncomment for local debugging
-#CMD [ "bash", "-c", "source /app/pencil-code/sourceme.sh && bash"]
+CMD [ "bash", "-c", "source /app/pencil-code/sourceme.sh && bash"]
 
-CMD ["./python/pencil-api/run.sh"]
+#CMD ["./python/pencil-api/run.sh"]

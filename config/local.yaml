@@ -1,2 +1,3 @@
-simulation_dir: simulation
-exmaple_dir: examples
+simulations: simulations
+example_dir: examples
+api_path: /app/pencil-code/python/pencil-api/
