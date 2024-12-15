@@ -52,3 +52,7 @@ class Config:
     def __setup_simulation_path__(self):
         simulation_path = self.get("simulation_path")
         os.system("mkdir ./" + simulation_path)
+
+    def __setup_example_path__(self):
+        example_path = self.get("example_path")
+        os.system("mkdir ./" + example_path)

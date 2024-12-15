@@ -22,8 +22,6 @@ ENV PENCIL_HOME=/app/pencil-code
 RUN git clone https://github.com/pencil-code/pencil-code.git /app/pencil-code
 
 # Create directories for examples and API
-RUN mkdir ./examples
-RUN mkdir ./examples/example-disc
 RUN mkdir ./python/pencil-api
 
 # Copy configuration files and API code
