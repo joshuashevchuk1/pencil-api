@@ -1,6 +1,7 @@
 
 import os
-import config.config as cfg
+import config as cfg
+
 
 class SimulationResolver:
     """
