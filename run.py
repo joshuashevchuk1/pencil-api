@@ -2,9 +2,16 @@ import src.app.app as common_server
 
 import subprocess
 import logging
+import os
+import config.config as cfg
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+def setup_config():
+    config = cfg.Config()
+    config.setup_config()
 
 def init_pencil_python():
     """
@@ -24,6 +31,7 @@ def init_pencil_python():
         logging.error("Command stderr: %s", e.stderr)
 
 def run_pencil_api():
+     setup_config()
      init_pencil_python()
      server = common_server.CommonApp("9020")
      server.run_server()

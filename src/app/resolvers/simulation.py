@@ -1,6 +1,6 @@
 
 import os
-import sys
+import config.config as cfg
 
 class SimulationResolver:
     """
@@ -8,6 +8,7 @@ class SimulationResolver:
     """
     def __init__(self):
         self.file_name = None
+        self.config = cfg.Config()
         return
 
     def set_file_name(self,file_name):
@@ -15,6 +16,7 @@ class SimulationResolver:
 
     def build(self):
         os.system("pc_build")
+
         return
 
     def start(self):

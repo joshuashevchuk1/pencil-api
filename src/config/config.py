@@ -4,7 +4,7 @@ import yaml
 class Config:
     _instance = None
 
-    def __new__(cls, env=None, path="../config"):
+    def __new__(cls, env=None, path="./src/config"):
         if cls._instance is None:
             cls._instance = super(Config, cls).__new__(cls)
             # Ensure instance gets initialized with env and path on first instantiation
@@ -21,7 +21,7 @@ class Config:
         Private initialization method to initialize env and path
         only when the singleton is first created.
         """
-        self.env = env or os.getenv('STAGE', 'dev')
+        self.env = env or os.getenv('STAGE', 'local')
         self.path = path
 
     def load_config(self):
@@ -45,3 +45,10 @@ class Config:
         except KeyError:
             return default
         return value
+
+    def setup_config(self):
+        self.__setup_simulation_path__()
+
+    def __setup_simulation_path__(self):
+        simulation_path = self.get("simulation_path")
+        os.system("mkdir ./" + simulation_path)
