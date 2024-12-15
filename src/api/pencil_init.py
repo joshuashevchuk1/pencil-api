@@ -1,6 +1,6 @@
 
 from flask import request, jsonify
-import resolvers.pencil_init as rpi
+import src.app.resolvers.pencil_init as rpi
 
 class PencilInit:
         def __init__(self, app):

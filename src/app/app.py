@@ -1,5 +1,6 @@
 from flask import Flask
 from src.api.database import db
+import src.api.pencil_init as pencil_init
 
 class CommonApp:
     def __init__(self, port):
@@ -17,6 +18,9 @@ class CommonApp:
         with self.app.app_context():
             db.create_all()
 
+        # initialize all api objects
+        self.pencil_init = pencil_init.PencilInit(self.app)
+
     def home(self):
         return "ok", 200
 
@@ -30,6 +34,7 @@ class CommonApp:
         self.app.add_url_rule(
             '/healthCheck', 'health_check', self.health_check, methods=["GET"]
         )
+        self.pencil_init.add_routes()
 
     def run_server(self):
         self.add_routes()
