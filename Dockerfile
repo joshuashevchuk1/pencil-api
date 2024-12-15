@@ -25,6 +25,7 @@ RUN git clone https://github.com/pencil-code/pencil-code.git /app/pencil-code
 RUN mkdir ./examples
 RUN mkdir ./examples/example-disc
 RUN mkdir ./python/pencil-api
+RUN mkdir ./simulations
 
 # Copy configuration files and API code
 COPY start.in .
