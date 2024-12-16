@@ -21,14 +21,17 @@ class SimulationResolver:
     def build(self):
         os.chdir(str(self.api_path) + str(self.simulations) + "/" + str(self.sim))
         os.system("pc_build " + str(self.simulations))
+        os.chdir(str(self.api_path))
         return
 
     def start(self):
         os.chdir(str(self.api_path) + str(self.simulations) + "/" + str(self.sim))
         os.system("pc_start " + str(self.simulations))
+        os.chdir(str(self.api_path))
         return
 
     def run(self):
         os.chdir(str(self.api_path) + str(self.simulations) + "/" + str(self.sim))
         os.system("pc_run " + str(self.simulations))
+        os.chdir(str(self.api_path))
         return

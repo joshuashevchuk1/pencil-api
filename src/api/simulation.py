@@ -10,7 +10,7 @@ class SimulationHandler:
         return
 
     # runs pc_build as GET
-    def build_sim(self):
+    def build_sim(self,sim_name):
 
         return
 
