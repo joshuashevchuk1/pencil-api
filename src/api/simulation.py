@@ -11,15 +11,21 @@ class SimulationHandler:
 
     # runs pc_build as GET
     def build_sim(self,sim_name):
-
+        sr = simulaton.SimulationResolver()
+        sr.set_sim(sim_name)
+        sr.build()
         return
 
     # runs pc_start as GET
-    def start_sim(self):
-
+    def start_sim(self, sim_name):
+        sr = simulaton.SimulationResolver()
+        sr.set_sim(sim_name)
+        sr.run()
         return
 
     # runs pc_run as GET
-    def run_sim(self):
-
+    def run_sim(self, sim_name):
+        sr = simulaton.SimulationResolver()
+        sr.set_sim(sim_name)
+        sr.run()
         return
