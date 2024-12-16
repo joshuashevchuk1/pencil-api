@@ -2,7 +2,7 @@ import src.app.app as common_server
 
 import subprocess
 import logging
-import config as cfg
+import config.config as cfg
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
