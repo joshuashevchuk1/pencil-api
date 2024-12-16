@@ -20,15 +20,15 @@ class SimulationResolver:
 
     def build(self):
         os.chdir(str(self.api_path) + str(self.simulations) + "/" + str(self.sim))
-        os.system("pc_build " + "/app/pencil-code/python/pencil-api" + str(self.simulations))
+        os.system("pc_build " + str(self.simulations))
         return
 
     def start(self):
         os.chdir(str(self.api_path) + str(self.simulations) + "/" + str(self.sim))
-        os.system("pc_start " + "/app/pencil-code/python/pencil-api" + str(self.simulations))
+        os.system("pc_start " + str(self.simulations))
         return
 
     def run(self):
         os.chdir(str(self.api_path) + str(self.simulations) + "/" + str(self.sim))
-        os.system("pc_run " + "/app/pencil-code/python/pencil-api" + str(self.simulations))
+        os.system("pc_run " + str(self.simulations))
         return
