@@ -4,7 +4,9 @@ import yaml
 class Config:
     _instance = None
 
-    def __new__(cls, env=None, path="./config"):
+    def __new__(cls, env=None, path="./python/pencil-api/config"):
+        if os.getenv("CONFIG") is not None:
+            path = os.getenv("CONFIG")
         if cls._instance is None:
             cls._instance = super(Config, cls).__new__(cls)
             # Ensure instance gets initialized with env and path on first instantiation
